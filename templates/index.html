@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Prediction</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>House Price Prediction</h1>
+        <form method="POST" action="/predict">
+            <label for="bedrooms">Bedrooms:</label>
+            <input type="number" name="bedrooms" id="bedrooms" required><br><br>
+
+            <label for="bathrooms">Bathrooms:</label>
+            <input type="number" name="bathrooms" id="bathrooms" required><br><br>
+
+            <label for="sqft_living">Sqft Living:</label>
+            <input type="number" name="sqft_living" id="sqft_living" required><br><br>
+
+            <label for="sqft_lot">Sqft Lot:</label>
+            <input type="number" name="sqft_lot" id="sqft_lot" required><br><br>
+
+            <label for="floors">Floors:</label>
+            <input type="number" name="floors" id="floors" required><br><br>
+
+            <label for="waterfront">Waterfront:</label>
+            <select name="waterfront" id="waterfront" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select><br><br>
+
+            <label for="view">View:</label>
+            <select name="view" id="view" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select><br><br>
+
+            <label for="grade">Grade:</label>
+            <input type="number" name="grade" id="grade" min="1" max="13" required><br><br>
+
+            <label for="sqft_above">Sqft Above:</label>
+            <input type="number" name="sqft_above" id="sqft_above" required><br><br>
+
+            <label for="sqft_basement">Sqft Basement:</label>
+            <input type="number" name="sqft_basement" id="sqft_basement" required><br><br>
+
+            <label for="yr_renovated">Year Renovated:</label>
+            <input type="number" name="yr_renovated" id="yr_renovated" required><br><br>
+
+            <label for="lat">Latitude:</label>
+            <input type="number" name="lat" id="lat" required><br><br>
+
+            <label for="sqft_living15">Sqft Living (Neighborhood):</label>
+            <input type="number" name="sqft_living15" id="sqft_living15" required><br><br>
+
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if predicted_price %}
+        <h2>Predicted Price: {{ predicted_price }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
